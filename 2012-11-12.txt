@@ -1,1 +1,109 @@
 Databases, Migrations and Models
+--------------------------------------------------------------------------
+
+1. Bash prompt configuration
+
+2. Review Stoq
+
+3. Quiz 2012-11-12.a.rb
+4. Quiz 2012-11-12.b.rb
+
+5. Postgres install
+6. pgAdmin install
+
+7. Lecture
+http://www.postgresql.org/docs/9.2/interactive/tutorial.html
+http://www.postgresql.org/docs/9.2/interactive/sql.html
+
+create database:
+use gui
+
+create tables:
+use query tool
+CREATE TABLE weather (
+  city            varchar(80),
+  temp_lo         int,           -- low temperature
+  temp_hi         int,           -- high temperature
+  prcp            real,          -- precipitation
+  date            date
+);
+
+CREATE TABLE cities (
+  name            varchar(80),
+  location        point
+);
+
+drop tables:
+DROP TABLE weather;
+
+insert data:
+INSERT INTO weather VALUES ('San Francisco', 46, 50, 0.25, '1994-11-27');
+- or -
+INSERT INTO weather (city, temp_lo, temp_hi, prcp, date) VALUES ('San Francisco', 43, 57, 0.0, '1994-11-29');
+- or -
+INSERT INTO weather (date, city, temp_hi, temp_lo) VALUES ('1994-11-29', 'Hayward', 54, 37);
+- or -
+INSERT INTO cities VALUES ('San Francisco', '(-194.0, 53.0)');
+
+query data:
+SELECT * FROM weather;
+- or -
+SELECT city, temp_lo, temp_hi, prcp, date FROM weather;
+- or -
+SELECT city, (temp_hi+temp_lo)/2 AS temp_avg, date FROM weather;
+- or -
+SELECT * FROM weather WHERE city = 'San Francisco' AND prcp > 0.0;
+- or -
+SELECT * FROM weather ORDER BY city;
+- or -
+SELECT * FROM weather ORDER BY city, temp_lo;
+- or -
+SELECT DISTINCT city FROM weather;
+
+join data:
+SELECT * FROM weather, cities WHERE city = name;
+- or -
+SELECT city, temp_lo, temp_hi, prcp, date, location FROM weather, cities WHERE city = name;
+- or -
+SELECT weather.city, weather.temp_lo, weather.temp_hi, weather.prcp, weather.date, cities.location
+  FROM weather, cities
+  WHERE cities.name = weather.city;
+
+aggregate functions:
+SELECT max(temp_lo) FROM weather;
+- or -
+SELECT city, max(temp_lo) FROM weather GROUP BY city;
+
+update data:
+UPDATE weather SET temp_hi = temp_hi - 2,  temp_lo = temp_lo - 2 WHERE date > '1994-11-28';
+
+delete data:
+DELETE FROM weather WHERE city = 'Hayward';
+
+foreign keys:
+CREATE TABLE cities (
+  city     varchar(80) primary key,
+  location point
+);
+
+CREATE TABLE weather (
+  city      varchar(80) references cities(city),
+  temp_lo   int,
+  temp_hi   int,
+  prcp      real,
+  date      date
+);
+
+- error, because berkeley does not exist
+INSERT INTO weather VALUES ('Berkeley', 45, 53, 0.0, '1994-11-28');
+
+CREATE TABLE products (
+  id   serial PRIMARY KEY,
+  name text NOT NULL
+);
+
+CREATE TABLE orders (
+  id   serial PRIMARY KEY,
+  product_id integer NOT NULL REFERENCES products (id),
+  quantity integer
+);
