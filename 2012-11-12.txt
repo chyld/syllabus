@@ -2,6 +2,7 @@ Databases, Migrations and Models
 --------------------------------------------------------------------------
 
 1. Bash prompt configuration
+http://en.wikipedia.org/wiki/List_of_Unicode_characters
 
 2. Review Stoq
 
