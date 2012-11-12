@@ -171,17 +171,30 @@ stoqing
 1. create a rails app called stoqing
 2. change sqlite3 gem to pg
 3. add annotate and pry-rails gems
+
 4. create a stocks table containing:
   id - integer
   symbol - string
   quote - decimal
   timestamps
 
-5. create an interactive program using pry that will:
+5. create a users table containing:
+  id - integer
+  name - string
+  password - string
+  timestamps
+
+6. create a stock and user model
+
+7. annotate these models
+
+8. create a custom rake task that will populate the users table
+
+9. create an interactive program using pry that will:
   a: ask the user for 5 stock symbols
   b: after the 5th symbol has been entered, every 1 second
      get a quote for each 5 stocks and store that data in the database
 
-6. Using either pgAdmin or rails db
+10. using either pgAdmin or rails db
   a: monitor the data being added
   b: query the data using sql
