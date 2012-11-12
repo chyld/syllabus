@@ -9,10 +9,14 @@ http://en.wikipedia.org/wiki/List_of_Unicode_characters
 3. Quiz 2012-11-12.a.rb
 4. Quiz 2012-11-12.b.rb
 
-5. Postgres install
-6. pgAdmin install
+5. Quiz/Code Review
 
-7. Lecture
+6. Postgres install
+7. pgAdmin install
+
+8. Lecture
+Database Theory
+
 http://www.postgresql.org/docs/9.2/interactive/tutorial.html
 http://www.postgresql.org/docs/9.2/interactive/sql.html
 
@@ -108,3 +112,76 @@ CREATE TABLE orders (
   product_id integer NOT NULL REFERENCES products (id),
   quantity integer
 );
+
+9. Lecture
+Rails
+
+http://rubyonrails.org/
+http://guides.rubyonrails.org/
+http://media.tumblr.com/tumblr_lf12c01bt71qzruj5.png
+
+rails new darkmatter
+rails g scaffold movie name:string revenue:decimal is_funny:boolean description:text
+rake db:create
+rake db:migrate
+rails s
+go to chrome: http://localhost:3000
+
+10. Lecture
+Migrations and Models
+
+http://guides.rubyonrails.org/migrations.html
+
+gems:
+pry-rails
+annotate
+pg
+
+rails g migration add_movies_table
+rake db:create
+rake db:migrate
+rake db:seed
+
+namespace :admin  do
+  desc "movies add"
+  task :movies_add => :environment do
+    Movie.create(:name => 'x')
+    Movie.create(:name => 'y')
+    Movie.create(:name => 'z')
+  end
+
+  desc "movies nuke"
+  task :movies_nuke => :environment do
+    Movie.delete_all
+  end
+end
+
+rails db
+\? - help
+\h - help
+\q - quit
+\l - list databases
+\c - connect to database
+\d - show tables
+\d+ tablename - show specific table
+
+11. Lab
+stoqing
+
+1. create a rails app called stoqing
+2. change sqlite3 gem to pg
+3. add annotate and pry-rails gems
+4. create a stocks table containing:
+  id - integer
+  symbol - string
+  quote - decimal
+  timestamps
+
+5. create an interactive program using pry that will:
+  a: ask the user for 5 stock symbols
+  b: after the 5th symbol has been entered, every 1 second
+     get a quote for each 5 stocks and store that data in the database
+
+6. Using either pgAdmin or rails db
+  a: monitor the data being added
+  b: query the data using sql
