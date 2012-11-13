@@ -1,1 +1,26 @@
-Associations, Validations and Query
+Associations and Validations
+
+1. review
+
+2. more migration examples
+  http://guides.rubyonrails.org/migrations.html
+
+3. associations
+  http://guides.rubyonrails.org/association_basics.html
+
+  a. one to many
+    a1. labs
+  b. many to many
+    b1. labs
+  c. many to many, through
+    c1. labs
+
+4. validations
+  http://guides.rubyonrails.org/active_record_validations_callbacks.html
+
+  a. built-in
+    a1. labs
+  b. custom
+    b1. labs
+
+5. homeowork
