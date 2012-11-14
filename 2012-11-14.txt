@@ -1,1 +1,19 @@
 Routing, Views and Controllers I
+
+1. Review
+
+2. Routing
+  http://guides.rubyonrails.org/routing.html
+
+3. Controllers
+  http://guides.rubyonrails.org/action_controller_overview.html
+
+4. Views
+  http://guides.rubyonrails.org/layouts_and_rendering.html
+
+5. Forms
+  http://guides.rubyonrails.org/form_helpers.html
+
+6. Labs
+
+7. Quizes
