@@ -1,1 +1,15 @@
 Routing, Views and Controllers III
+
+1. Review stox app
+
+2. Quiz
+
+3. Code Review
+
+4. Lab - Restaurant.  Multi-model
+
+5. Lecture.  How to setup UI in multi-model system
+
+6. Lab
+
+7. Homework
