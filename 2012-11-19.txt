@@ -1,0 +1,54 @@
+1. deploy to heroku:
+add a production section to database.yml
+rake -T
+rake assets:clean
+rake assets:precompile
+git add .
+git commit -m "assets"
+git push origin master
+git push heroku master
+heroku config:add AWSKEY=xxx AWSSEC=yyy
+heroku run rake db:create
+heroku run rake db:migrate
+
+2. show and tell
+
+3. go over all code
+
+4. install http://www.imagemagick.org/script/index.php
+brew install imagemagick
+
+5. using imagemagick
+branch songz master to magick
+add gem rmagick
+  version :thumb do
+    process :resize_to_fill => [150, 150]
+  end
+photo.url
+photo.thumb.url
+
+6. sass
+labs folder
+rails new dogsandcats
+scaffold dog and cat
+variables
+nesting
+mixins
+
+7. Work on songz lab
+resize images
+use sass
+refactor code
+
+8. Lecture
+uploading music
+youtube videos
+
+9. Work on songz lab
+add music/videos
+
+10. Lecture
+twitter bootstrap
+
+11. Lab
+using bootstrap in songz
