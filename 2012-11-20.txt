@@ -1,0 +1,17 @@
+1. Depoly songz to heroku
+
+2. Demos
+
+3. Working with remote branches
+  git ls-remote
+  git fetch
+  git branch -a
+  git checkout --track origin/branchname
+
+4. Lecture
+  session
+  cookies
+  authentication
+  authorization
+
+5. Lab
