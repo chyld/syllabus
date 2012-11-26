@@ -1,0 +1,13 @@
+1. demo datestr
+
+2. code review - datestr
+
+3. pagination
+
+4. twitter bootstrap
+
+5. ajax
+
+6. lecture demo
+
+7. lab
